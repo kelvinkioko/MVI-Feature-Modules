@@ -1,0 +1,21 @@
+import com.defaults.buildsrc.Dependencies
+
+plugins {
+    id("java-library")
+    id("kotlin")
+}
+
+dependencies {
+    implementation(Dependencies.Kotlin.stdlib)
+    implementation(Dependencies.Retrofit.retrofit)
+    implementation(Dependencies.Kotlin.Coroutines.core)
+    implementation(Dependencies.Koin.core)
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+compileKotlin {
+    kotlinOptions {
+        freeCompilerArgs = ["-XXLanguage:+InlineClasses"]
+    }
+}

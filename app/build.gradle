@@ -1,0 +1,35 @@
+import com.defaults.buildsrc.Dependencies
+
+/*
+ * If you intend on using → apply plugin: 'com.insert relevant plugin' then make sure your gradle files are 'build.gradle'
+ * and also android on line 20 will give you an error the moment you add the '.kts' extension
+ */
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    defaultConfig.applicationId("com.transaction.mvi")
+
+    dynamicFeatures = [":login", ":signup", ":home"]
+
+
+}
+
+apply from: "$rootProject.projectDir/android_defaults.gradle"
+
+/*
+ * All necessary dependencies are already implemented in the common project so
+ * by calling it here we inherit all of them. This will just keep it clean and
+ * simple to update in case we need to upgrade the imports
+ *
+ * An interesting tid bit is if you use 'implementation' → this dependency is only available to entities within this module
+ * but if you use 'api' → this dependency will also be available within any module which depends on this module
+ * Source https://medium.com/@julesrosser/handling-gradle-dependencies-in-multiple-module-android-projects-9e590c3d20dc
+ */
+dependencies {
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation(project(":common"))
+}

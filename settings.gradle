@@ -1,0 +1,5 @@
+rootProject.name='Simple MVI Transaction'
+include ":app", ":common", ":domain"
+include ':login'
+include ':signup'
+include ':home'

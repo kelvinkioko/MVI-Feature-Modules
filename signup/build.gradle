@@ -1,0 +1,13 @@
+plugins {
+    id("com.android.dynamic-feature")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
+    id("org.jetbrains.kotlin.kapt")
+}
+
+apply from: "$rootProject.projectDir/android_defaults.gradle"
+
+dependencies {
+    implementation project(':app')
+    implementation project(':common')
+}
