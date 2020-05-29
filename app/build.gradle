@@ -14,9 +14,9 @@ android {
     defaultConfig.applicationId("com.transaction.mvi")
 
     dynamicFeatures = [":login", ":signup", ":home"]
-
-
 }
+
+apply from: "$rootProject.projectDir/ktlint.gradle"
 
 apply from: "$rootProject.projectDir/android_defaults.gradle"
 
